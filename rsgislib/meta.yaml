@@ -1,0 +1,63 @@
+{% set version = "5.0.0a" %}
+
+package:
+  name: rsgislib
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/remotesensinginfo/rsgislib.git
+  git_tag: rsgislib_v5_dev
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - cmake
+    # - gcc
+  host:
+    - hdf5 
+    - h5py
+    - muparser
+    - gsl
+    - gdal
+    - boost-cpp 
+    - kealib 
+    - rios
+    - tqdm
+    - python
+  run:
+    - hdf5
+    - h5py
+    - muparser
+    - gsl 
+    - gdal
+    - boost-cpp 
+    - kealib
+    - rios
+    - tqdm 
+    - python
+
+test:
+  imports:
+    - rsgislib
+    - rsgislib.imagecalibration
+    - rsgislib.classification
+    - rsgislib.elevation
+    - rsgislib.imagecalc
+    - rsgislib.imagefilter
+    - rsgislib.imageregistration
+    - rsgislib.imageutils
+    - rsgislib.rastergis
+    - rsgislib.segmentation
+    - rsgislib.vectorutils
+    - rsgislib.zonalstats
+    - rsgislib.imagemorphology
+
+about:
+  home: http://www.rsgislib.org
+  license: GPL3
+  license_file: LICENSE.txt
+  summary: The Remote Sensing and GIS software library (RSGISLib) is a collection of Python modules for processing remote sensing and GIS datasets.
+
+
