@@ -22,9 +22,10 @@ if [ `uname` == Darwin ]; then
 	-D KEA_INCLUDE_DIR=$PREFIX/include \
 	-D KEA_LIB_PATH=$PREFIX/lib \
 	-D Python_EXECUTABLE=$PREFIX/bin/python \
-	-D Python_INCLUDE_DIR=$PREFIX/include/python3.6m/ \
-	-D Python_LIBRARY_RELEASE=$PREFIX/lib/libpython3.6m.dylib \
-	-D CMAKE_OSX_SYSROOT="/" \
+	-D Python_INCLUDE_DIR=$PREFIX/include/python3.9/ \
+	-D Python_LIBRARY_RELEASE=$PREFIX/lib/libpython3.9.dylib \
+        -D CMAKE_CXX_COMPILER=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ \
+        -D CMAKE_C_COMPILER=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc \
 	-D CMAKE_OSX_DEPLOYMENT_TARGET="" \
 	-D CMAKE_VERBOSE_MAKEFILE=ON \
         -D CMAKE_BUILD_TYPE=Debug \

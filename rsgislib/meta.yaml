@@ -14,7 +14,6 @@ build:
 requirements:
   build:
     - cmake
-    # - gcc
   host:
     - hdf5 
     - h5py
