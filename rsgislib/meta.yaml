@@ -1,4 +1,4 @@
-{% set version = "5.0.0a" %}
+{% set version = "5.0.2b" %}
 
 package:
   name: rsgislib
