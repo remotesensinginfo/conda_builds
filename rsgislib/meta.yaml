@@ -9,11 +9,13 @@ source:
   git_tag: main
 
 build:
-  number: 6
+  number: 7
 
 requirements:
   build:
     - cmake
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - hdf5 
     - h5py
