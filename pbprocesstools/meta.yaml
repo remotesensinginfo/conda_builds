@@ -1,0 +1,36 @@
+{% set version = "3.1.2" %}
+
+package:
+  name: pbprocesstools
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/remotesensinginfo/pb_process_tools.git
+  git_tag: main
+
+
+build:
+  number: 1
+  script:
+    - "{{ PYTHON }} setup.py install"
+
+requirements:
+  host:
+    - python
+    - tqdm
+    - sqlalchemy
+    - psycopg2
+  run:
+    - python
+    - tqdm
+    - sqlalchemy
+    - psycopg2
+
+about:
+  home: https://github.com/remotesensinginfo/pb_process_tools
+  license: Apache License 2.0
+  license_file: LICENSE.txt
+  summary: Tools for batch processing large datasets, including generating slurm job submission scripts. These are a set of scripts I have put together to streamline my workflows.
+
+
+
