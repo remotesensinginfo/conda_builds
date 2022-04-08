@@ -1,4 +1,4 @@
-{% set version = "5.0.1" %}
+{% set version = "5.0.8" %}
 
 package:
   name: rsgislib
@@ -9,7 +9,7 @@ source:
   git_tag: main
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   build:
