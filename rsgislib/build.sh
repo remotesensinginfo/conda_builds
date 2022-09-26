@@ -47,8 +47,8 @@ else
 	-D KEA_INCLUDE_DIR=$PREFIX/include \
 	-D KEA_LIB_PATH=$PREFIX/lib \
 	-D Python_EXECUTABLE=$PREFIX/bin/python \
-        -D Python_INCLUDE_DIR=$PREFIX/include/python3.9/ \
-        -D Python_LIBRARY_RELEASE=$PREFIX/lib/libpython3.9.so \
+        -D Python_INCLUDE_DIR=$PREFIX/include/python3.10/ \
+        -D Python_LIBRARY_RELEASE=$PREFIX/lib/libpython3.10.so \
 	-D CMAKE_VERBOSE_MAKEFILE=ON \
 	-D CMAKE_SKIP_RPATH=ON \
 	..

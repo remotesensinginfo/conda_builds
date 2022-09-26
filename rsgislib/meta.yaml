@@ -1,4 +1,4 @@
-{% set version = "5.0.8" %}
+{% set version = "5.0.10a" %}
 
 package:
   name: rsgislib
@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/remotesensinginfo/rsgislib.git
-  git_tag: main
+  git_tag: vec_pt_match
 
 build:
   number: 0
@@ -14,30 +14,32 @@ build:
 requirements:
   build:
     - cmake
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - hdf5 
+    - python
+    - hdf5
+    - muparser
+    - gsl
+    - gdal
+    - boost-cpp
+    - kealib
+    - tqdm
+  run:
+    - python
+    - numpy
+    - hdf5
     - h5py
     - muparser
     - gsl
     - gdal
-    - boost-cpp 
-    - kealib 
-    - rios
-    - tqdm
-    - python
-  run:
-    - hdf5
-    - h5py
-    - muparser
-    - gsl 
-    - gdal
-    - boost-cpp 
+    - boost-cpp
     - kealib
+    - tqdm
     - rios
-    - tqdm 
-    - python
 
 test:
   imports:
