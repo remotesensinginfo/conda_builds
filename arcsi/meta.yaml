@@ -1,0 +1,38 @@
+{% set version = "4.0.0" %}
+
+package:
+  name: arcsi
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/remotesensinginfo/arcsi.git
+  git_tag: arcsi_v4_using_rsgislib_v5
+
+
+build:
+  number: 3
+  script:
+    - "pip install ."
+
+requirements:
+  host:
+    - python
+    - tqdm
+    - rsgislib
+    - py6s
+    - python-fmask
+  run:
+    - python
+    - tqdm
+    - rsgislib
+    - py6s
+    - python-fmask
+
+about:
+  home: https://github.com/remotesensinginfo/arcsi
+  license: Apache License 2.0
+  license_file: LICENSE.txt
+  summary: Atmospheric Correction of Sentinel-2 and Landsat Imagery.
+
+
+

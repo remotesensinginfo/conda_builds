@@ -1,0 +1,49 @@
+{% set version = "3.0.2" %}
+
+package:
+  name: spdpointsviewer
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/remotesensinginfo/spdpointsviewer.git
+  git_tag: master
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - make  # [unix]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libselinux') }}  # [linux]
+    - {{ cdt('libxdamage') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libxext') }}     # [linux]
+  host:
+    - xorg-libxfixes  # [linux]
+    - mesa
+    - boost-cpp
+    - hdf5
+    - libgdal
+    - spdlib
+    - qt-main
+  run:
+    - mesa
+    - boost-cpp
+    - hdf5
+    - libgdal
+    - spdlib
+    - qt-main
+
+
+
+about:
+  home: http://www.spdlib.org
+  license: GPLv3
+  summary: The Sorted Pulse Data Library (SPDLib) provides a format for storing and tools for processing discrete return and full waveform LiDAR data from airborne and terrestrial sensors.
+
+

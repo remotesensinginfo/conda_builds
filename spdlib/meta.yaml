@@ -1,0 +1,52 @@
+{% set version = "3.4.0a" %}
+
+package:
+  name: spdlib
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/remotesensinginfo/spdlib.git
+  git_tag: master
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - cmake
+    - make  # [unix]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - boost-cpp
+    - hdf5
+    - xerces-c
+    - gsl
+    - libgdal
+    - geos
+    - cgal-cpp
+    - lastools
+  run:
+    - boost-cpp
+    - hdf5
+    - xerces-c
+    - gsl
+    - libgdal
+    - geos
+    - cgal-cpp
+    - lastools
+
+test:
+  commands:
+    - if not exist %LIBRARY_BIN%\\libspd.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\libspd.lib exit 1  # [win]
+    - test -f $PREFIX/lib/libspd.so                  # [linux]
+    - test -f $PREFIX/lib/libspd.dylib               # [osx]
+    - spdtranslate -h
+
+about:
+  home: http://www.spdlib.org
+  license: GPLv3
+  summary: The Sorted Pulse Data Library (SPDLib) provides a format for storing and tools for processing discrete return and full waveform LiDAR data from airborne and terrestrial sensors.
+
+
